@@ -18,6 +18,7 @@ $(function() {
         }
         var descriptionText = "<p>" + description + "</p><p>" + inventoryText + "</p>";
         $("#product-" + id).html(descriptionText);
+        <button class="js-next" data-id="<%= @product.id %>">Next Product</button>
       });
     });
   });

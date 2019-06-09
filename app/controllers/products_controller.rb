@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    binding.pry
     @products = Product.all  
   end
 
@@ -24,10 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @products = Product.all
+    @product = Product.find_by_id(params[:id])
     respond_to do |f|
        #binding.pry
-			f.html {render :index}
+			f.html {render :show}
       f.json {render json: @product.to_json(only: [:id, :name, :description, :inventory, :price])}
 		end
   end
